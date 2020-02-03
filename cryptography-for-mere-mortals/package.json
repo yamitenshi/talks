@@ -1,0 +1,27 @@
+{
+  "name": "cryptography-for-mere-mortals",
+  "version": "1.0.0",
+  "description": "Cryptography for mere mortals",
+  "main": "node_modules/reveal.js/js/reveal.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yamitenshi/talks.git"
+  },
+  "keywords": [
+    "Cryptography"
+  ],
+  "author": "Nash van Gool <nash@vangool.it>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yamitenshi/talks/issues"
+  },
+  "homepage": "https://github.com/yamitenshi/talks#readme",
+  "dependencies": {
+    "mdx-deck": "^3.1.0",
+    "reveal-md": "^3.4.4"
+  },
+  "scripts": {
+    "start": "reveal-md slides.md",
+    "build-static": "reveal-md slides.md --static _static"
+  }
+}

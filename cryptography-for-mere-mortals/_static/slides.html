@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Cryptography for mere mortals</title>
+    <link rel="stylesheet" href="./css/reveal.css" />
+    <link rel="stylesheet" href="./css/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="./css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./css/print/paper.css" type="text/css" media="print" />
+
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template">
+
+# Cryptography for Mere Mortals
+</script></section><section  data-markdown><script type="text/template">
+## Who am I
+
+* (Web) software engineer
+* Freelancer
+* Security enthusiast
+* Twitter: @vangool_it
+
+<aside class="notes"><p>keep it short, nobody cares</p>
+</aside></script></section><section  data-markdown><script type="text/template">
+## Why this talk?
+
+<aside class="notes"><ul>
+<li>Information is hard to find</li>
+<li>Disconnect between basic and complicated information</li>
+<li>Errors are common, mistakes easy to make</li>
+<li>Lots of implementations have no reasoning behind them</li>
+<li>Coursera course by Dan Boneh</li>
+<li>Looked up the complex stuff so you don&#39;t have to</li>
+</ul>
+</aside></script></section><section  data-markdown><script type="text/template">
+## Trust and the CIA
+
+Disclaimer: Don't trust the CIA
+
+<aside class="notes"><ul>
+<li>Go into what trust means, and what each of the CIA letters mean</li>
+<li>Crypto keeps trust small while not restricting freedom</li>
+<li>Crypto deals with C and I, not A</li>
+<li>Implementations can affect A</li>
+</ul>
+</aside></script></section><section  data-markdown><script type="text/template">
+## The nature of data
+
+<aside class="notes"><ul>
+<li>For crypto, it&#39;s all numbers</li>
+<li>Crypto is just math on these numbers</li>
+<li>Data at rest vs in transit</li>
+</ul>
+</aside></script></section><section  data-markdown><script type="text/template">
+## Hashing
+
+<aside class="notes"><ul>
+<li>One way -&gt; hash is not easily reversed to valid data</li>
+<li>No secrets involved, so easily forged</li>
+<li>Can be used to verify I, but only in some cases<ul>
+<li>Transmission errors</li>
+<li>See if two things match (like passwords or files)</li>
+</ul>
+</li>
+</ul>
+</aside></script></section><section ><section data-markdown><script type="text/template">
+## Symmetric cryptography
+
+<aside class="notes"><ul>
+<li>Only one key for both ways</li>
+<li>Mostly useful for data at rest</li>
+<li>Less useful for data in transit</li>
+<li>Key sharing is problematic</li>
+</ul>
+</aside></script></section><section data-markdown><script type="text/template">
+## Stream ciphers
+
+<aside class="notes"><ul>
+<li>Like One-Time Pad</li>
+<li>Operate on arbitrary length data</li>
+<li>Require key size the same as data size</li>
+</ul>
+</aside></script></section><section data-markdown><script type="text/template">
+## Block ciphers
+
+<aside class="notes"><ul>
+<li>Like AES</li>
+<li>Operate on fixed length data blocks</li>
+<li>Require fixed key size</li>
+<li>ECB mode is trash</li>
+<li>CBC mode is less trash but still trash</li>
+</ul>
+</aside></script></section></section><section  data-markdown><script type="text/template">
+## Asymmetric cryptorgaphy
+
+<aside class="notes"><ul>
+<li>Like RSA</li>
+<li>Different key for each direction</li>
+<li>TLS uses asymmetric crypto<ul>
+<li>Cert is pub key</li>
+</ul>
+</li>
+<li>Useful for data in transit</li>
+<li>Less useful for data at rest</li>
+<li>Key sharing is easier (but still complicated under the hood)</li>
+<li>Doesn&#39;t usually need to be handled by the application<ul>
+<li>But sometimes it does, like with async stuff</li>
+<li>In those cases, use things like JWT and WS-SEC</li>
+</ul>
+</li>
+</ul>
+</aside></script></section><section  data-markdown><script type="text/template">
+## Signing
+
+<aside class="notes"><ul>
+<li>Like HMAC</li>
+<li>It&#39;s hashing but with secrets!</li>
+<li>Useful for protecting integrity</li>
+<li>Can also be used to protect ciphertexts from tampering</li>
+<li>Encrypt-then-sign!</li>
+</ul>
+</aside></script></section><section ><section data-markdown><script type="text/template">
+## What is security?
+</script></section><section data-markdown><script type="text/template">
+### For hashing
+
+Collisions are unlikely
+</script></section><section data-markdown><script type="text/template">
+### For encryption
+
+Data is indistinguishable from random
+
+<aside class="notes"><ul>
+<li>This does not mean the data IS random!<ul>
+<li>Right to be forgotten: don&#39;t do this!</li>
+</ul>
+</li>
+</ul>
+</aside></script></section><section data-markdown><script type="text/template">
+### For signing
+
+Forging signatures is hard
+
+<aside class="notes"><ul>
+<li>Signatures can still be easily verifiable even without secrets</li>
+<li>Do not guarantee any confidentiality</li>
+</ul>
+</aside></script></section></section><section  data-markdown><script type="text/template">
+## In conclusion
+
+* Encryption protects confidentiality, but not integrity
+* Symmetric cryptography for data at rest
+* Asymmetric cryptography for data in transit
+* Use hashing and signing to prevent integrity
+ * But consider your threat models
+* Use authenticated encryption where possible
+</script></section><section  data-markdown><script type="text/template">
+## Common pitfalls
+
+* Weak keys/IVs
+* Descriptive errors
+* Misconfiguration
+* Side channel attacks
+
+<aside class="notes"><ul>
+<li>Go into zero IVs or default keys<ul>
+<li>Not just for cryptography, signing too</li>
+<li>Symfony&#39;s secret -&gt; used for remember me token signature</li>
+</ul>
+</li>
+<li>Descriptive errors leak implementation details<ul>
+<li>Go into padding oracles</li>
+</ul>
+</li>
+<li>Misconfigurations such as weak modes or algorithms</li>
+<li>Side channel attacks such as timing or power attacks</li>
+</ul>
+</aside></script></section><section  data-markdown><script type="text/template">
+# Any questions?
+</script></section></div>
+    </div>
+
+    <script src="./js/reveal.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // Optional libraries used to extend on reveal.js
+      var deps = [
+        { src: './plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: './plugin/zoom-js/zoom.js', async: true },
+        { src: './plugin/notes/notes.js', async: true },
+        { src: './plugin/math/math.js', async: true }
+      ];
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        dependencies: deps
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal.getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"transition":"slide","navigationMode":"linear"}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>
