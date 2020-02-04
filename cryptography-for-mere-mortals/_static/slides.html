@@ -6,7 +6,7 @@
 
     <title>Cryptography for mere mortals</title>
     <link rel="stylesheet" href="./css/reveal.css" />
-    <link rel="stylesheet" href="./css/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="./css/theme/simple.css" id="theme" />
     <link rel="stylesheet" href="./css/highlight/zenburn.css" />
     <link rel="stylesheet" href="./css/print/paper.css" type="text/css" media="print" />
 
@@ -55,18 +55,6 @@ Disclaimer: Don't trust the CIA
 <li>Crypto is just math on these numbers</li>
 <li>Data at rest vs in transit</li>
 </ul>
-</aside></script></section><section  data-markdown><script type="text/template">
-## Hashing
-
-<aside class="notes"><ul>
-<li>One way -&gt; hash is not easily reversed to valid data</li>
-<li>No secrets involved, so easily forged</li>
-<li>Can be used to verify I, but only in some cases<ul>
-<li>Transmission errors</li>
-<li>See if two things match (like passwords or files)</li>
-</ul>
-</li>
-</ul>
 </aside></script></section><section ><section data-markdown><script type="text/template">
 ## Symmetric cryptography
 
@@ -114,6 +102,22 @@ Disclaimer: Don't trust the CIA
 </li>
 </ul>
 </aside></script></section><section  data-markdown><script type="text/template">
+## Hashing
+
+<aside class="notes"><ul>
+<li>One way -&gt; hash is not easily reversed to valid data</li>
+<li>No secrets involved, so easily forged</li>
+<li>Can be used to verify I, but only in some cases<ul>
+<li>Transmission errors</li>
+<li>See if two things match (like passwords or files)</li>
+</ul>
+</li>
+<li>Does not protect C: identical P -&gt; identical H<ul>
+<li>Salting helps this!</li>
+</ul>
+</li>
+</ul>
+</aside></script></section><section  data-markdown><script type="text/template">
 ## Signing
 
 <aside class="notes"><ul>
@@ -129,6 +133,10 @@ Disclaimer: Don't trust the CIA
 ### For hashing
 
 Collisions are unlikely
+</script></section><section data-markdown><script type="text/template">
+### For password hashing
+
+It's also slow 
 </script></section><section data-markdown><script type="text/template">
 ### For encryption
 
@@ -155,7 +163,7 @@ Forging signatures is hard
 * Encryption protects confidentiality, but not integrity
 * Symmetric cryptography for data at rest
 * Asymmetric cryptography for data in transit
-* Use hashing and signing to prevent integrity
+* Use hashing and signing to protect integrity
  * But consider your threat models
 * Use authenticated encryption where possible
 </script></section><section  data-markdown><script type="text/template">

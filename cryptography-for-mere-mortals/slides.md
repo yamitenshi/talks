@@ -1,5 +1,6 @@
 ---
 title: Cryptography for mere mortals
+theme: simple
 ---
 
 # Cryptography for Mere Mortals
@@ -51,17 +52,6 @@ Note:
 
 ---
 
-## Hashing
-
-Note:
-* One way -> hash is not easily reversed to valid data
-* No secrets involved, so easily forged
-* Can be used to verify I, but only in some cases
- * Transmission errors
- * See if two things match (like passwords or files)
-
----
-
 ## Symmetric cryptography
 
 Note:
@@ -108,6 +98,19 @@ Note:
 
 ---
 
+## Hashing
+
+Note:
+* One way -> hash is not easily reversed to valid data
+* No secrets involved, so easily forged
+* Can be used to verify I, but only in some cases
+ * Transmission errors
+ * See if two things match (like passwords or files)
+* Does not protect C: identical P -> identical H
+ * Salting helps this!
+
+---
+
 ## Signing
 
 Note:
@@ -126,6 +129,12 @@ Note:
 ### For hashing
 
 Collisions are unlikely
+
+----
+
+### For password hashing
+
+It's also slow 
 
 ----
 
@@ -154,7 +163,7 @@ Note:
 * Encryption protects confidentiality, but not integrity
 * Symmetric cryptography for data at rest
 * Asymmetric cryptography for data in transit
-* Use hashing and signing to prevent integrity
+* Use hashing and signing to protect integrity
  * But consider your threat models
 * Use authenticated encryption where possible
 

@@ -17,11 +17,11 @@
   },
   "homepage": "https://github.com/yamitenshi/talks#readme",
   "dependencies": {
-    "mdx-deck": "^3.1.0",
     "reveal-md": "^3.4.4"
   },
   "scripts": {
     "start": "reveal-md slides.md",
-    "build-static": "reveal-md slides.md --static _static"
+    "build-static": "reveal-md slides.md --static _static",
+    "build-pdf": "reveal-md slides.md --print cryptography-for-mere-mortals.pdf --print-size A4"
   }
 }
