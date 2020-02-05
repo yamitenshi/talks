@@ -118,6 +118,7 @@ Note:
 * It's hashing but with secrets!
 * Useful for protecting integrity
 * Can also be used to protect ciphertexts from tampering
+* Can be done symmetrically or asymmetrically
 * Encrypt-then-sign!
 
 ---
