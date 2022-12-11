@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/yamitenshi/talks#readme",
   "dependencies": {
-    "reveal-md": "^3.4.4"
+    "reveal-md": "^5.4.0"
   },
   "scripts": {
     "start": "reveal-md slides.md",
