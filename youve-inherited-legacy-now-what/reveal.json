@@ -1,0 +1,6 @@
+{
+	"transition": "slide",
+	"navigationMode": "linear",
+    "controls": true,
+    "progress": true
+}
