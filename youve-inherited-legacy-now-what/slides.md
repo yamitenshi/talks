@@ -5,12 +5,25 @@ verticalSeparator: \n\n--\n\n
 ---
 
 # You've inherited a legacy codebase
+
 --
+
 ...now what?
 
 ---
 
+## About me
+
+- Hi! I'm Nash
+- I make software
+- I often talk about things
+  - Sometimes people listen!
+
+---
+
 ## The 3-step program
+
+--
 
 ![Step 1: lie down, step 2: try not to cry, step 3: cry a lot](img/cry-a-lot.jpeg)
 
@@ -20,7 +33,10 @@ verticalSeparator: \n\n--\n\n
 
 - Legacy has stood the test of time
 
-Note: Legacy is probably what's paying your salary. There's a reason this software exists and a reason your company wants it. The codebase might suck, but as a functional unit there's often a good reason for its existence. Embrace that!
+Note: 
+Legacy is probably what's paying your salary. There's a reason this software exists and a reason your company wants it. The codebase might suck, but as a functional unit there's often a good reason for its existence. Embrace that!
+
+Spaghetti code in production is almost always more valuable than beautiful code in development.
 
 ---
 
@@ -146,6 +162,8 @@ If all of this is hard and risky, you skipped ahead - go back to step 3, you're 
 
 Bugs are no different from feature requests: some are not important, and some are less important than others. Prioritise them just like anything else.
 Earlier conversations about what's important can help with this.
+
+Static analysis is wonderful for this - it catches entire classes of bugs, and with a baseline can only block problems with what you've touched.
 
 ---
 
