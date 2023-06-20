@@ -8,13 +8,14 @@ verticalSeparator: \n\n--\n\n
 
 --
 
-...now what?
+![Now what?](img/now-what.jpeg)
 
 ---
 
 ## About me
 
 - Hi! I'm Nash
+- I like food
 - I make software
 - I often talk about things
   - Sometimes people listen!
@@ -26,6 +27,11 @@ verticalSeparator: \n\n--\n\n
 --
 
 ![Step 1: lie down, step 2: try not to cry, step 3: cry a lot](img/cry-a-lot.jpeg)
+
+
+---
+
+## The many-step program
 
 ---
 
@@ -46,7 +52,11 @@ Spaghetti code in production is almost always more valuable than beautiful code 
 
 --
 
-Congratulations! You're done. You win at life.
+Congratulations!
+
+![Man throwing confetti in celebration](img/confetti.gif)
+
+You're done. You win at life.
 
 ---
 
@@ -168,6 +178,8 @@ Static analysis is wonderful for this - it catches entire classes of bugs, and w
 ---
 
 ## Step 5: Profit(?)
+
+<img src="img/stonks.png" style="height: 500px"/>
 
 Note:
 There should now be a working piece of software and a solid foundation to work off.
